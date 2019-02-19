@@ -1,13 +1,18 @@
-html {
-  font-size: 10px;
-  background: url(../images/drummer.jpg);
-  background-size: cover;
-}
-
 body,html {
+  font-size: 10px;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+#background {
+    background-color: green;
+    background-image: url("../images/drummer.jpg");
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
 }
 
 .keys {
