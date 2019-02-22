@@ -60,26 +60,22 @@
 
 <script>
   function playSound(e) {
-    // console.log(e.keyCode);
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //selects the audio
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //selects the div on the page
-    // console.log(audio);
-    if (!audio) return; //if not a valid key, nothing happens
-    audio.currentTime = 0; //restarts so we can hit same key over and over again
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+    audio.currentTime = 0;
     audio.play();
-    key.classList.add('playing'); //add playing class to the key div and triggers the playing style
+    key.classList.add('playing');
   }
 
 
   function removeTransition(e) {
-    if (e.propertyName !== 'transform') return; //skip it if it's not a transform
-    // console.log(e.propertyName);
-    // console.log(this);
+    if (e.propertyName !== 'transform') return;
     this.classList.remove('playing');
   }
   
   const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //must listen on each of them
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
 </script>
 
